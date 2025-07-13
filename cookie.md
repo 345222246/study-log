@@ -1,12 +1,12 @@
 
 ### 페이지 라우팅
-```php
+```python
 @app.route('/')
 ```
 - 데코레이터 : 사용자가 웹 사이트의 메인페이지 (/) 에 접속하면 아래 함수가 실행됨
 <br>
 
-```php
+```python
 session_id=request.cookies.get('sessionid',None)
 ```
 - 사용자 브라우저에서 보낸 쿠키를 확인
@@ -14,7 +14,7 @@ session_id=request.cookies.get('sessionid',None)
 - 쿠키가 없으면 None을 반환
 <br>
 
-  ```php
+```python
 try:
     username=session_storage[session_id]
 except KeyError:
@@ -24,11 +24,11 @@ except KeyError:
 - sessionid를 키로 해서 username을 찾기
 
 ## 엔드 포인트: /admin
-admin 페이지 코드는 관리자 페이지를 구성하는 코드
-admin 세션 생성은 서비스 실행 시 os.urandom(32).hex()를 통한 무작위 값 생성을 통해 username이 admin인 세션정보를 session_storage에 생성한다.
+- admin 페이지 코드는 관리자 페이지를 구성하는 코드
+- admin 세션 생성은 서비스 실행 시 os.urandom(32).hex()를 통한 무작위 값 생성을 통해 username이 admin인 세션정보를 session_storage에 생성한다.
 
 ### admin 페이지 코드
-```php
+```python
 @app.route('/admin')
 def admin():
     # developer's note: review below commented code and uncomment it (TODO)
@@ -41,7 +41,7 @@ def admin():
     return session_storage
 ```
 ### admin 세션 생성
-```php
+```python
 if __name__ == '__main__':
     import os
     session_storage[os.urandom(32).hex()] = 'admin' # username이 admin인 Session ID를 무작위로 생성
