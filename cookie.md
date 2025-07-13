@@ -15,7 +15,7 @@ session_id=request.cookies.get('sessionid',None)
 <br>
 
   ```php
-  try:
+try:
     username=session_storage[session_id]
 except KeyError:
   return render_template('index.html')
